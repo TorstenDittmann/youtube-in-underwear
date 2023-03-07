@@ -1,6 +1,6 @@
-name: "Submit to Web Store"
+name: "Test"
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   build:
@@ -17,8 +17,3 @@ jobs:
         run: npm build
       - name: Package the extension into a zip artifact
         run: npm package
-      - name: Browser Platform Publish
-        uses: PlasmoHQ/bpp@v3
-        with:
-          keys: ${{ secrets.SUBMIT_KEYS }}
-          artifact: build/chrome-mv3-prod.zip
